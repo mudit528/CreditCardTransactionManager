@@ -1,0 +1,9 @@
+@reference "../styles.css";
+
+.main-wrapper {
+  @apply min-h-screen bg-[#F8F9FB] flex flex-col font-sans;
+}
+
+.body {
+  @apply flex-grow;
+}

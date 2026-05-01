@@ -1,0 +1,56 @@
+@reference "../../styles.css";
+
+.cards-view {
+  @apply max-w-7xl mx-auto px-6 py-12;
+}
+
+.header {
+  @apply flex justify-between items-end mb-12;
+}
+
+.header h2 {
+  @apply text-3xl font-black text-gray-900 tracking-tight;
+}
+
+.back-btn {
+  @apply text-xs font-bold text-gray-400 hover:text-indigo-600 mb-2 block;
+}
+
+.btn-add {
+  @apply bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-100;
+}
+
+.cards-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.card-item {
+  @apply bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-gray-200/50 hover:scale-[1.02] transition-all;
+}
+
+.card-top {
+  @apply flex justify-between items-start mb-8 text-indigo-600;
+}
+
+.status {
+  @apply px-3 py-1 rounded-full text-[10px] font-black uppercase;
+}
+
+.status.active { @apply bg-emerald-100 text-emerald-600; }
+.status.blocked { @apply bg-red-100 text-red-600; }
+
+.card-number {
+  @apply text-xl font-mono tracking-widest text-gray-900 mb-8;
+}
+
+.card-footer {
+  @apply flex justify-between items-center;
+}
+
+.holder {
+  @apply text-sm font-bold text-gray-500 uppercase;
+}
+
+.btn-del {
+  @apply text-red-400 hover:text-red-600 transition-colors;
+}

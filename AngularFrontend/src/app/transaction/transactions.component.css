@@ -1,0 +1,46 @@
+@reference "../../styles.css";
+
+.tx-view {
+  @apply max-w-7xl mx-auto px-6 py-12;
+}
+
+.header {
+  @apply flex justify-between items-end mb-12;
+}
+
+.back-btn {
+  @apply text-xs font-bold text-gray-400 hover:text-indigo-600 mb-2 block;
+}
+
+.search-wrap {
+  @apply relative flex items-center;
+}
+
+.search-wrap svg {
+  @apply absolute left-4 text-gray-400;
+}
+
+.search-wrap input {
+  @apply pl-10 pr-6 py-2 bg-white border border-gray-100 rounded-xl outline-none focus:ring-2 focus:ring-indigo-100 transition-all;
+}
+
+.table-wrap {
+  @apply bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50 overflow-hidden;
+}
+
+table {
+  @apply w-full text-left;
+}
+
+th {
+  @apply px-8 py-4 bg-gray-50/50 text-[10px] font-black text-gray-400 uppercase tracking-widest;
+}
+
+td {
+  @apply px-8 py-4 text-sm border-t border-gray-50;
+}
+
+.id { @apply font-mono text-indigo-400; }
+.merchant { @apply font-bold text-gray-900; }
+.amt.neg { @apply text-gray-900; }
+.amt.pos { @apply text-emerald-500 font-bold; }

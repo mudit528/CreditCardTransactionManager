@@ -1,0 +1,107 @@
+<div *ngIf="isOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" (click)="reset()"></div>
+  <div class="relative bg-white rounded-2xl w-full max-w-md overflow-hidden shadow-2xl">
+    <div class="bg-[#1F2937] text-white p-6 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <lucide-icon [name]="CreditCardIcon" class="text-blue-400"></lucide-icon>
+        <h3 class="text-xl font-bold">Issue New Card</h3>
+      </div>
+      <button (click)="reset()" class="p-1 hover:bg-white/10 rounded-full transition-colors">
+        <lucide-icon [name]="X" size="20"></lucide-icon>
+      </button>
+    </div>
+
+    <form (submit)="handleSubmit()" class="p-8 space-y-6">
+      <div class="space-y-4">
+        <div class="relative">
+          <label class="text-[10px] uppercase font-black text-gray-400 tracking-widest absolute top-2 left-3">Bank Name</label>
+          <div class="absolute top-1/2 -translate-y-1/2 right-3 text-gray-400 mt-2">
+            <lucide-icon [name]="Landmark" size="18"></lucide-icon>
+          </div>
+          <input 
+            required
+            name="bankName"
+            type="text" 
+            placeholder="e.g. S-Bank"
+            class="w-full bg-gray-50 border border-gray-200 rounded-xl pt-6 pb-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-bold"
+            [(ngModel)]="formData.bankName"
+          />
+        </div>
+
+        <div class="relative">
+          <label class="text-[10px] uppercase font-black text-gray-400 tracking-widest absolute top-2 left-3">Card Number</label>
+          <div class="absolute top-1/2 -translate-y-1/2 right-3 text-gray-400 mt-2">
+            <lucide-icon [name]="ShieldCheck" size="18"></lucide-icon>
+          </div>
+          <input 
+            required
+            name="cardNumber"
+            type="text" 
+            placeholder="**** **** **** ****"
+            class="w-full bg-gray-50 border border-gray-200 rounded-xl pt-6 pb-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-mono font-bold"
+            [(ngModel)]="formData.cardNumber"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="relative">
+            <label class="text-[10px] uppercase font-black text-gray-400 tracking-widest absolute top-2 left-3">Card Holder</label>
+            <div class="absolute top-1/2 -translate-y-1/2 right-3 text-gray-400 mt-2">
+              <lucide-icon [name]="UserIcon" size="18"></lucide-icon>
+            </div>
+            <input 
+              required
+              name="cardHolder"
+              type="text" 
+              placeholder="NAME"
+              class="w-full bg-gray-50 border border-gray-200 rounded-xl pt-6 pb-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-bold"
+              [(ngModel)]="formData.cardHolder"
+            />
+          </div>
+          <div class="relative">
+            <label class="text-[10px] uppercase font-black text-gray-400 tracking-widest absolute top-2 left-3">Expiry Date</label>
+            <input 
+              required
+              name="expiryDate"
+              type="text" 
+              placeholder="MM/YY"
+              class="w-full bg-gray-50 border border-gray-200 rounded-xl pt-6 pb-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-bold"
+              [(ngModel)]="formData.expiryDate"
+            />
+          </div>
+          <div class="relative">
+            <label class="text-[10px] uppercase font-black text-gray-400 tracking-widest absolute top-2 left-3">CVV</label>
+            <input 
+              required
+              name="cvv"
+              type="password" 
+              placeholder="***"
+              maxlength="3"
+              class="w-full bg-gray-50 border border-gray-200 rounded-xl pt-6 pb-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-bold"
+              [(ngModel)]="formData.cvv"
+            />
+          </div>
+        </div>
+
+        <div class="relative">
+          <label class="text-[10px] uppercase font-black text-gray-400 tracking-widest absolute top-2 left-3">Initial Balance</label>
+          <span class="absolute bottom-2 left-3 text-sm font-bold text-gray-500">₹</span>
+          <input 
+            required
+            name="balance"
+            type="number" 
+            class="w-full bg-gray-50 border border-gray-200 rounded-xl pt-6 pb-2 px-7 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-bold"
+            [(ngModel)]="formData.balance"
+          />
+        </div>
+      </div>
+
+      <button 
+        type="submit"
+        class="w-full bg-blue-600 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg active:scale-[0.98]"
+      >
+        Create New Card
+      </button>
+    </form>
+  </div>
+</div>

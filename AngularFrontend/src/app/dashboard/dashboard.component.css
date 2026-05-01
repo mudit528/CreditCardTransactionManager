@@ -1,0 +1,41 @@
+@reference "../../styles.css";
+
+.dashboard-root {
+  @apply max-w-7xl mx-auto px-6 py-12;
+}
+
+.loading-state {
+  @apply p-12 text-center text-gray-500 font-medium;
+}
+
+.header {
+  @apply flex justify-between items-end mb-12;
+}
+
+.welcome h2 {
+  @apply text-4xl font-black text-gray-900 tracking-tight mb-2;
+}
+
+.welcome p {
+  @apply text-gray-500 font-medium;
+}
+
+.highlight {
+  @apply text-indigo-600 font-bold;
+}
+
+.btn-add {
+  @apply bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-100 active:scale-95;
+}
+
+.stats-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8 mb-16;
+}
+
+.quick-actions h3 {
+  @apply text-xl font-black text-gray-900 tracking-tight mb-6 flex items-center gap-2;
+}
+
+.actions-list {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8;
+}

@@ -1,0 +1,27 @@
+<div class="cards-view" *ngIf="user">
+  <header class="header">
+    <div>
+      <a routerLink="/" class="back-btn">← Dash</a>
+      <h2>My Cards</h2>
+    </div>
+    <button *ngIf="user.role === 'ADMIN'" (click)="openForm()" class="btn-add">New Card</button>
+  </header>
+
+  <div class="cards-grid">
+    <div *ngFor="let card of cards" class="card-item">
+      <div class="card-top">
+        <lucide-icon [name]="CreditCard" size="32"></lucide-icon>
+        <span [class]="'status ' + card.status.toLowerCase()">{{card.status}}</span>
+      </div>
+      <div class="card-number">{{card.cardNumber}}</div>
+      <div class="card-footer">
+        <div class="holder">{{card.cardHolder}}</div>
+        <button *ngIf="user.role === 'ADMIN'" (click)="removeCard(card.id)" class="btn-del">
+          <lucide-icon [name]="Trash2" size="16"></lucide-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <app-card-form [isOpen]="isFormOpen" (close)="closeForm()" (submitForm)="issueCard($event)"></app-card-form>
+</div>

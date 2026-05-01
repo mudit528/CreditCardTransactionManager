@@ -1,0 +1,50 @@
+<div class="dashboard-root" *ngIf="stats && user">
+  <header class="header">
+    <div class="welcome">
+      <h2>Overview</h2>
+      <p>Logged in as <span class="highlight">{{user.name}}</span></p>
+    </div>
+    <button *ngIf="user.role === 'ADMIN'" (click)="navigate('/cards')" class="btn-add">Issue Card</button>
+  </header>
+
+  <section class="stats-grid">
+    <app-stats-card 
+      [icon]="CreditCard" 
+      label="Cards" 
+      [value]="stats.totalCards" 
+      color="bg-indigo-600">
+    </app-stats-card>
+    <app-stats-card 
+      [icon]="CreditCard" 
+      label="Active" 
+      [value]="stats.activeCards" 
+      color="bg-emerald-500">
+    </app-stats-card>
+    <app-stats-card 
+      [icon]="History" 
+      label="Transactions" 
+      [value]="stats.totalTransactions" 
+      color="bg-amber-500">
+    </app-stats-card>
+  </section>
+
+  <section class="quick-actions">
+    <h3><lucide-icon [name]="Zap" size="18"></lucide-icon> Quick Actions</h3>
+    <div class="actions-list">
+      <app-quick-action-card 
+        [icon]="CreditCard" 
+        title="Cards" 
+        description="Manage all cards" 
+        (action)="navigate('/cards')">
+      </app-quick-action-card>
+      <app-quick-action-card 
+        [icon]="History" 
+        title="History" 
+        description="View transaction logs" 
+        (action)="navigate('/transactions')">
+      </app-quick-action-card>
+    </div>
+  </section>
+</div>
+
+<div *ngIf="!stats" class="loading-state">Syncing data...</div>

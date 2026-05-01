@@ -1,0 +1,24 @@
+<ng-container *ngIf="ready">
+  <ng-container *ngIf="!user; else mainApp">
+    <app-login 
+      *ngIf="auth === 'login'" 
+      (login)="onLogin($event)" 
+      (switchToRegister)="setAuth('register')">
+    </app-login>
+    <app-register 
+      *ngIf="auth === 'register'" 
+      (register)="onRegister($event)" 
+      (switchToLogin)="setAuth('login')">
+    </app-register>
+  </ng-container>
+
+  <ng-template #mainApp>
+    <div class="main-wrapper">
+      <app-navbar [user]="user!" (logout)="logout()"></app-navbar>
+      <main class="body">
+        <router-outlet></router-outlet>
+      </main>
+      <app-footer></app-footer>
+    </div>
+  </ng-template>
+</ng-container>

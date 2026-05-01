@@ -1,0 +1,64 @@
+<div class="min-h-screen bg-[#F8F9FB] flex items-center justify-center p-6 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] login-container">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden border border-gray-100">
+    <div class="bg-[#1F2937] p-12 text-white text-center">
+      <div class="inline-flex items-center justify-center p-4 bg-white rounded-2xl mb-6 shadow-lg">
+        <lucide-icon [name]="CreditCard" class="text-[#1F2937] w-8 h-8"></lucide-icon>
+      </div>
+      <h1 class="text-3xl font-black tracking-tight mb-2">Welcome Back</h1>
+      <p class="text-gray-400 text-sm">Please enter your details to sign in</p>
+    </div>
+
+    <form (submit)="handleSubmit()" class="p-12 space-y-6">
+      <div class="space-y-4">
+        <div class="relative">
+          <label class="text-[10px] uppercase font-black text-gray-400 tracking-widest absolute top-2 left-3">Email Address</label>
+          <div class="absolute top-1/2 -translate-y-1/2 right-4 mt-2 text-gray-300">
+            <lucide-icon [name]="Mail" size="18"></lucide-icon>
+          </div>
+          <input 
+            required
+            name="email"
+            type="email" 
+            placeholder="email@example.com"
+            class="w-full bg-gray-50 border border-gray-200 rounded-xl pt-6 pb-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-bold"
+            [(ngModel)]="email"
+          />
+        </div>
+
+        <div class="relative">
+          <label class="text-[10px] uppercase font-black text-gray-400 tracking-widest absolute top-2 left-3">Password</label>
+          <div class="absolute top-1/2 -translate-y-1/2 right-4 mt-2 text-gray-300">
+            <lucide-icon [name]="Lock" size="18"></lucide-icon>
+          </div>
+          <input 
+            required
+            name="password"
+            type="password" 
+            placeholder="••••••••"
+            class="w-full bg-gray-50 border border-gray-200 rounded-xl pt-6 pb-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-bold"
+            [(ngModel)]="password"
+          />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs">
+        <label class="flex items-center gap-2 text-gray-500 cursor-pointer">
+          <input type="checkbox" class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+          <span>Remember me</span>
+        </label>
+        <a href="#" class="text-indigo-600 font-bold hover:underline">Forgot password?</a>
+      </div>
+
+      <button 
+        type="submit"
+        class="w-full bg-indigo-600 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-lg active:scale-[0.98]"
+      >
+        Sign In to Dashboard
+      </button>
+
+      <p class="text-center text-xs text-gray-500 pt-4">
+        Don't have an account? <button type="button" (click)="switchToRegister.emit()" class="text-indigo-600 font-bold hover:underline">Register now</button>
+      </p>
+    </form>
+  </div>
+</div>
